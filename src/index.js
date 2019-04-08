@@ -4,8 +4,6 @@ import App from "./App";
 import "./index.css";
 
 ReactDOM.render(
-  <React.Suspense fallback={<div>Loading bundle...</div>}>
-    <App />
-  </React.Suspense>,
+  <App />,
   document.getElementById("root")
 );
