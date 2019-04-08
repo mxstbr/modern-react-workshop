@@ -8,7 +8,7 @@ export default ({ match }) => (
       if (data) {
         return (
           <div>
-            <h1>@{match.params.username}'s repositories</h1>
+            <h2>@{match.params.username}'s repositories</h2>
             {data.map(repository => (
               <li key={repository.id}>
                 <a href={repository.html_url}>{repository.full_name}</a>
