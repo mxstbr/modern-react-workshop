@@ -1,0 +1,202 @@
+# React Hooks
+
+---
+
+## Hooks make it easy to reuse stateful logic
+
+---
+
+## The Most Important Hooks
+
+useState
+
+useEffect
+
+---
+
+export { components } from 'mdx-deck-code-surfer';
+
+```javascript useState
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+----
+*
+2
+2,6
+2,6,7
+```
+
+---
+
+```javascript useEffect
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `${count} clicks`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+----
+*
+4,5,6
+```
+
+---
+
+```javascript useEffect
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `${count} clicks`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+----
+*
+6
+4,5,6
+```
+
+---
+
+## Custom Hooks
+
+---
+
+```javascript Custom Hooks
+function useDocumentTitle(title) {
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+}
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  useDocumentTitle(`${count} clicks`);
+  return (/* ... */);
+}
+----
+*
+9
+1,2,3,4,5,9
+```
+
+
+---
+
+```markdown Other built-in hooks
+· useContext 
+· useReducer
+· useRef
+· useCallback
+· useMemo
+· useImperativeHandle
+· useLayoutEffect
+· useDebugValue
+----
+*
+1,2,3
+```
+
+---
+
+```javascript useContext
+const ThemeContext = React.createContext(defaultTheme);
+
+const HomeView = () => {
+  // Before:
+  <ThemeContext.Consumer>
+    {theme => ()}
+  <ThemeContext.Consumer>
+  // After:
+  const theme = useContext(ThemeContext);
+}
+----
+*
+1
+4,5,6,7
+8,9
+```
+
+---
+
+```javascript useReducer
+const initialState = {count: 0};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1};
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <div>
+      <p>You clicked {state.count} times</p>
+      <button onClick={() => dispatch({type: 'increment'})}>
+        Click me
+      </button>
+    </div>
+  );
+}
+----
+*
+1, 2, 3, 4, 5, 6, 7, 8
+1, 2, 3, 4, 5, 6, 7, 8, 11
+1, 2, 3, 4, 5, 6, 7, 8, 11, 14
+1, 2, 3, 4, 5, 6, 7, 8, 11, 14, 15
+```
+
+---
+
+```javascript useRef
+function Input() {
+  const element = useRef(null);
+  
+  return (
+    <>
+      <input ref={element} type="text" />
+      <button 
+        onClick={() => element.current.focus()}
+      >
+        Focus
+      </button>
+    </>
+  )
+}
+----
+*
+2
+2,6
+2,6,8
+```

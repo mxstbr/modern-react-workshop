@@ -16,6 +16,10 @@
     "eject": "react-scripts eject",
     "prettier": "prettier"
   },
+  "workspaces": [
+    "/",
+    "slides"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
