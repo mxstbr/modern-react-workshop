@@ -11,6 +11,10 @@ export default class FetchRepositories extends React.Component {
     this.fetch();
   }
 
+  componentDidUpdate(prev) {
+    if (prev.username !== this.props.username) this.fetch();
+  }
+
   fetch = () => {
     this.setState({
       loading: true

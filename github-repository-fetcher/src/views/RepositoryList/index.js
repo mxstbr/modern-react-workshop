@@ -3,9 +3,6 @@ import FetchRepositories from "../../components/FetchRepositories";
 import Spinner from "../../components/Spinner";
 
 const Repository = ({ repository }) => {
-  // Expensive render, do not remove
-  let i = 0;
-  while (i++ < 10000000) {}
   return (
     <li>
       <a href={repository.html_url}>{repository.full_name}</a>
