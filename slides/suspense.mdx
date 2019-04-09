@@ -1,3 +1,4 @@
+import { Appear } from "mdx-deck";
 import defaultTheme from "mdx-deck/themes";
 export { components } from "mdx-deck-code-surfer";
 
@@ -13,15 +14,38 @@ export const theme = {
   }
 };
 
-# React Suspense
+# Modern React
 
 ---
 
-The React team rewrote React to work concurrently.
+## Step 1: React Fiber ✅
+
+```notes
+React Fiber is a complete, backwards compatible rewrite of the React core.
+The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
+```
+
+1. Error Boundaries
+2. Incremental Rendering 🛠
+3. Fragments
+4. Portals
 
 ---
 
-Right now, the only thing that is viable to do with it is code-splitting.
+## Step 2: React Suspense ✅
+
+Defer rendering parts of your component tree.
+
+---
+
+## Step 3: Concurrent React 🛠
+
+Prioritise updates and render multiple updates concurrently.
+
+<Appear>
+  <p>This is not ready and cannot be used, at all.</p>
+  <p>...but you can prepare your app for it!</p>
+</Appear>
 
 ---
 
@@ -59,7 +83,7 @@ const App = () => (
 
 ---
 
-That's it... for now. What comes next?
+## What's next? A look at concurrent React.
 
 ---
 
@@ -71,28 +95,63 @@ const GitHubResource = createResource(path => {
 })
 
 const RepositoryList = (props) => {
-  const repositories = GitHubResource.read(`/users/${props.username}/repos`);
+  const user = GitHubResource.read(`/${props.username}`);
 
   return (
     <>
-      {repositories.map(repo => (/* ... */))}
+      {user.repositories
+        .map(repo => (/* ... */))}
     </>
   )
 }
+----
+1
+1,3
+1,3,4,5
+1,3,4,5,8
+1,3,4,5,8,12,13
 ```
 
 ---
 
-# LOADING STATE?!?!?!
+## Loading state?!
 
 ---
 
-```javascript react-cache + suspense
+```javascript Suspense!!
 <React.Suspense fallback={<Spinner />}>
   <RepositoryList username="mxstbr" />
 </React.Suspense>
-----
-*
-4,6
-4,5,6
 ```
+
+---
+
+## Hold on a second...
+
+---
+
+## THROWING PROMISES?!?!?!?!?!
+
+---
+
+## How do I prepare for concurrent React?
+
+<Appear>
+  <p>Wrap your app in `React.StrictMode` and fix all warnings.</p>
+</Appear>
+
+---
+
+## TL;DR
+
+Concurrent React will be 🔥
+
+Right now we can only use Fiber features and Suspense
+
+---
+
+## Now it's your turn!
+
+Rework `src/App.js` to code-split each route with React Suspense.
+
+**Bonus:** Turn the `RepositoryList` view into a modal that renders on top of the input.
