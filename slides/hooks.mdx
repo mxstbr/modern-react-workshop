@@ -16,17 +16,33 @@ export const theme = {
 
 ---
 
+## Problems Today
+
+Wrapper Hell
+
+Huge Components
+
+Confusing Classes
+
+---
+
 ## Hooks make it easy to reuse stateful logic
+
+Use all React features without classes
+
+Reuse stateful logic between components
+
+Opt-in, 100% backwards compatible and incrementally adoptable
 
 ---
 
 ## The Most Important Hooks
 
-useState
+`useState`
 
-useEffect
+`useEffect`
 
-useContext
+`useContext`
 
 ---
 
@@ -51,6 +67,12 @@ function Counter() {
 2,6
 2,6,7
 ```
+
+---
+
+## Now it's your turn!
+
+Rework `views/Home/index.js` to use the state hook.
 
 ---
 
@@ -141,6 +163,12 @@ function Chat({ conversationId }) {
 
 ---
 
+## Now it's your turn!
+
+Rework `components/FetchRepositories.js` to use the state and effect hooks.
+
+---
+
 ## Custom Hooks
 
 ---
@@ -165,6 +193,12 @@ function Counter() {
 
 ---
 
+## Now it's your turn!
+
+Rework `components/FetchRepositories.js` into a `useFetchRepositories` hook.
+
+---
+
 ```javascript useContext
 const ThemeContext = React.createContext(defaultTheme);
 
@@ -185,6 +219,12 @@ const HomeView = () => {
 
 ---
 
+## Now it's your turn!
+
+Rework `views/Home/index.js` to use the context hook.
+
+---
+
 <!-- prettier-ignore -->
 ```markdown Other built-in hooks
 · useReducer
@@ -196,7 +236,7 @@ const HomeView = () => {
 · useDebugValue
 ----
 \*
-1,2,3
+1,2
 ```
 
 ---
@@ -257,11 +297,3 @@ function Input() {
 ---
 
 # Questions?
-
----
-
-# Now it's your turn!
-
-Rework the `views/Home/index.js` and `components/FetchRepositories.js` components to use hooks.
-
-**Bonus**: Rework `components/FetchRepositories.js` into a `useFetchRepositories` hook.
