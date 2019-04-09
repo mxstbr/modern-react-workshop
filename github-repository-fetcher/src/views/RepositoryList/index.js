@@ -2,6 +2,17 @@ import React from "react";
 import FetchRepositories from "../../components/FetchRepositories";
 import Spinner from "../../components/Spinner";
 
+const Repository = ({ repository }) => {
+  // Expensive render, do not remove
+  let i = 0;
+  while (i++ < 10000000) {}
+  return (
+    <li>
+      <a href={repository.html_url}>{repository.full_name}</a>
+    </li>
+  );
+};
+
 export default ({ match }) => (
   <FetchRepositories username={match.params.username}>
     {({ error, loading, data }) => {
@@ -10,9 +21,7 @@ export default ({ match }) => (
           <div>
             <h2>@{match.params.username}'s repositories</h2>
             {data.map(repository => (
-              <li key={repository.id}>
-                <a href={repository.html_url}>{repository.full_name}</a>
-              </li>
+              <Repository key={repository.id} repository={repository} />
             ))}
           </div>
         );
