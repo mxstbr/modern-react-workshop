@@ -18,34 +18,119 @@ export const theme = {
 
 ---
 
-## Step 1: React Fiber ✅
+Step 1: React Fiber ✅
+
+Step 2: Suspense ✅
+
+Step 3: Concurrent React 🛠
+
+---
+
+## React Fiber
 
 ```notes
 React Fiber is a complete, backwards compatible rewrite of the React core.
 The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
 ```
 
-1. Error Boundaries
-2. Incremental Rendering 🛠
-3. Fragments
-4. Portals
+<Appear>
+  <p>Incremental Rendering</p>
+  <p>Error Boundaries</p>
+  <p>Fragments</p>
+  <p>Portals</p>
+</Appear>
 
 ---
 
-## Step 2: React Suspense ✅
+```javascript Error Boundaries
+class Page extends React.Component {
+  state = {
+    error: null
+  };
+
+  componentDidCatch(error) {
+    this.setState({
+      error,
+    });
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <p>{this.state.error}</p>
+      );
+    }
+    // ...
+  }
+}
+----
+*
+6,7,8,9,10
+6,7,8,9,10,12,13,14,15,16,17
+```
+
+---
+
+```jsx Protip: Use react-error-boundary
+import ErrorBoundary from 'react-error-boundary';
+
+<ErrorBoundary FallbackComponent={ErrorOverlay}>
+  <ComponentThatMayError />
+</ErrorBoundary>
+----
+*
+3,5
+3,4,5
+```
+
+---
+
+```javascript Fragments (finally!)
+const Columns = () => (
+  <React.Fragment>
+    <td>Hello</td>
+    <td>World</td>
+  </React.Fragment>
+)
+----
+*
+2,5
+2,3,4,5
+```
+
+---
+
+```javascript Fragment Syntax
+const Columns = () => (
+  <>
+    <td>Hello</td>
+    <td>World</td>
+  </>
+)
+----
+*
+2,5
+```
+
+---
+
+```javascript Portals
+const Modal = (props) => {
+  return ReactDOM.createPortal(
+    props.children,
+    document.getElementById('#modal-root')
+  );
+}
+----
+*
+2,3,4,5
+```
+
+---
+
+## Suspense
 
 Defer rendering parts of your component tree.
-
----
-
-## Step 3: Concurrent React 🛠
-
-Prioritise updates and render multiple updates concurrently.
-
-<Appear>
-  <p>This is not ready and cannot be used, at all.</p>
-  <p>...but you can prepare your app for it!</p>
-</Appear>
 
 ---
 
@@ -83,7 +168,14 @@ const App = () => (
 
 ---
 
-## What's next? A look at concurrent React.
+## Concurrent React 🛠
+
+Prioritise updates and render multiple updates concurrently.
+
+<Appear>
+  <p>This is not ready and cannot be used, at all.</p>
+  <p>...but you can prepare your app for it!</p>
+</Appear>
 
 ---
 
@@ -142,8 +234,6 @@ const RepositoryList = (props) => {
 
 ---
 
-## TL;DR
-
 Concurrent React will be 🔥
 
 Right now we can only use Fiber features and Suspense
@@ -152,6 +242,8 @@ Right now we can only use Fiber features and Suspense
 
 ## Now it's your turn!
 
-Rework `src/App.js` to code-split each route with React Suspense.
+Show an error overlay if the app crashes
 
-**Bonus:** Turn the `RepositoryList` view into a modal that renders on top of the input.
+Code-split each route and show a loading indicator.
+
+**Bonus:** Turn the `RepositoryList` route into a modal (tip: remove the `<Switch>`).
