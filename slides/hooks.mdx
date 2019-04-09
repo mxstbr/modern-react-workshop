@@ -14,7 +14,7 @@ useEffect
 
 ---
 
-export { components } from 'mdx-deck-code-surfer';
+export { components } from "mdx-deck-code-surfer";
 
 ```javascript useState
 function Counter() {
@@ -109,11 +109,11 @@ function Counter() {
 1,2,3,4,5,9
 ```
 
-
 ---
 
+<!-- prettier-ignore -->
 ```markdown Other built-in hooks
-· useContext 
+· useContext
 · useReducer
 · useRef
 · useCallback
@@ -122,7 +122,7 @@ function Counter() {
 · useLayoutEffect
 · useDebugValue
 ----
-*
+\*
 1,2,3
 ```
 
@@ -149,12 +149,12 @@ const HomeView = () => {
 ---
 
 ```javascript useReducer
-const initialState = {count: 0};
+const initialState = { count: 0 };
 
 function reducer(state, action) {
   switch (action.type) {
     case 'increment':
-      return {count: state.count + 1};
+      return { count: state.count + 1 };
   }
 }
 
@@ -182,11 +182,11 @@ function Counter() {
 ```javascript useRef
 function Input() {
   const element = useRef(null);
-  
+
   return (
     <>
       <input ref={element} type="text" />
-      <button 
+      <button
         onClick={() => element.current.focus()}
       >
         Focus
