@@ -1,3 +1,17 @@
+import defaultTheme from "mdx-deck/themes";
+
+export const theme = {
+  ...defaultTheme,
+  code: {
+    ...defaultTheme.code,
+    color: "#000",
+    backgroundColor: "rgba(27,31,35,.05)",
+    borderRadius: "3px",
+    padding: "0 .4em",
+    fontSize: "85%"
+  }
+};
+
 # React Hooks
 
 ---
@@ -87,6 +101,44 @@ function Counter() {
 
 ---
 
+```javascript useEffect run on mount/unmount
+function Chat() {
+  useEffect(() => {
+    const unsubscribe = ChatAPI.subscribeToNewMessages();
+
+    return () => unsubscribe();
+  }, []);
+
+  return (/* ... */);
+}
+----
+*
+2,3
+2,3,5
+2,3,5,6
+```
+
+---
+
+```javascript useEffect cleanup
+function Chat({ conversationId }) {
+  useEffect(() => {
+    const unsubscribe = ChatAPI.subscribeToNewMessages(conversationId);
+
+    return () => unsubscribe(conversationId);
+  }, [conversationId]);
+
+  return (/* ... */);
+}
+----
+*
+2,3
+2,3,5
+2,3,5,6
+```
+
+---
+
 ## Custom Hooks
 
 ---
@@ -142,8 +194,8 @@ const HomeView = () => {
 ----
 *
 1
-4,5,6,7
-8,9
+1,4,5,6,7
+1,8,9
 ```
 
 ---
@@ -200,3 +252,15 @@ function Input() {
 2,6
 2,6,8
 ```
+
+---
+
+# Questions?
+
+---
+
+# Now it's your turn!
+
+Rework the `views/Home/index.js` and `components/FetchRepositories.js` components to use hooks.
+
+**Bonus**: Rework `components/FetchRepositories.js` into a `useFetchRepositories` hook.
