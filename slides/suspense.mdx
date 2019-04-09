@@ -1,9 +1,98 @@
+import defaultTheme from "mdx-deck/themes";
+export { components } from "mdx-deck-code-surfer";
+
+export const theme = {
+  ...defaultTheme,
+  code: {
+    ...defaultTheme.code,
+    color: "#000",
+    backgroundColor: "rgba(27,31,35,.05)",
+    borderRadius: "3px",
+    padding: "0 .4em",
+    fontSize: "85%"
+  }
+};
+
 # React Suspense
 
 ---
 
-React Suspense is the first feature enabled by concurrent React
+The React team rewrote React to work concurrently.
 
 ---
 
-Rather than rendering all at once and then committing it to the DOM, React can split up the work into chunks and commit them at the end.
+Right now, the only thing that is viable to do with it is code-splitting.
+
+---
+
+```javascript Suspense for Code Splitting
+const HomeView = React.lazy(() => import('./views/Home'));
+
+const App = () => (
+  <Route path="/" component={HomeView} />
+);
+----
+*
+1
+1,4
+```
+
+---
+
+Where is the loading state?
+
+---
+
+```javascript Rendering Fallback Content
+const HomeView = React.lazy(() => import('./views/Home'));
+
+const App = () => (
+  <React.Suspense fallback={<Spinner />}>
+    <Route path="/" component={HomeView} />
+  </React.Suspense>
+);
+----
+*
+4,6
+4,5,6
+```
+
+---
+
+That's it... for now. What comes next?
+
+---
+
+```javascript React Cache
+import { createResource } from 'react-cache';
+
+const GitHubResource = createResource(path => {
+  return fetch(`api.github.com${path}`);
+})
+
+const RepositoryList = (props) => {
+  const repositories = GitHubResource.read(`/users/${props.username}/repos`);
+
+  return (
+    <>
+      {repositories.map(repo => (/* ... */))}
+    </>
+  )
+}
+```
+
+---
+
+# LOADING STATE?!?!?!
+
+---
+
+```javascript react-cache + suspense
+<React.Suspense fallback={<Spinner />}>
+  <RepositoryList username="mxstbr" />
+</React.Suspense>
+----
+*
+4,6
+4,5,6
+```
