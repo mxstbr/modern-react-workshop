@@ -26,6 +26,8 @@ useState
 
 useEffect
 
+useContext
+
 ---
 
 export { components } from "mdx-deck-code-surfer";
@@ -163,23 +165,6 @@ function Counter() {
 
 ---
 
-<!-- prettier-ignore -->
-```markdown Other built-in hooks
-· useContext
-· useReducer
-· useRef
-· useCallback
-· useMemo
-· useImperativeHandle
-· useLayoutEffect
-· useDebugValue
-----
-\*
-1,2,3
-```
-
----
-
 ```javascript useContext
 const ThemeContext = React.createContext(defaultTheme);
 
@@ -196,6 +181,22 @@ const HomeView = () => {
 1
 1,4,5,6,7
 1,8,9
+```
+
+---
+
+<!-- prettier-ignore -->
+```markdown Other built-in hooks
+· useReducer
+· useRef
+· useCallback
+· useMemo
+· useImperativeHandle
+· useLayoutEffect
+· useDebugValue
+----
+\*
+1,2,3
 ```
 
 ---
