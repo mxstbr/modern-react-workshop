@@ -307,6 +307,17 @@ const RepositoryList = (props) => {
 
 ---
 
+- Legacy lifecycles (`componentWill*`)
+- Strings Refs (use `createRef` or `useRef` instead)
+- `findDOMNode` (use refs instead)
+- Legacy Context API
+
+<Notes>
+These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential misuse may be more problematic with async rendering. Because of this, we will be adding an “UNSAFE_” prefix to these lifecycles in an upcoming release. (Here, “unsafe” refers not to security but instead conveys that code using these lifecycles will be more likely to have bugs in future versions of React, especially once async rendering is enabled.)
+</Notes>
+
+---
+
 ```jsx Once all the warnings are resolved
 <React.unstable_ConcurrentMode>
   <App />
