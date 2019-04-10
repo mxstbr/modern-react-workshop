@@ -295,6 +295,34 @@ const RepositoryList = (props) => {
 
 ---
 
+
+```javascript How does react-cache work?
+read: (input) => {
+  const result = this.callback(input);
+  if (typeof result === Promise) throw result;
+  return result;
+}
+
+// Inside React...
+try {
+  render(Component);
+} catch(error) {
+  if (typeof error === Promise) {
+    error.then(() => render(Component));
+  } else {
+    throw error;
+  }
+}
+----
+*
+3
+3,8,9,10,16
+3,8,9,10,11,12,16
+3,8,9,10,11,12,13,14,15,16
+```
+
+---
+
 ## THROWING PROMISES?!?!?!?!?!
 
 ---
