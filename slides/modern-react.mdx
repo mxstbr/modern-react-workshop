@@ -1,9 +1,11 @@
-import { Appear } from "mdx-deck";
+import { Appear, Notes } from "mdx-deck";
 import defaultTheme from "mdx-deck/themes";
 export { components } from "mdx-deck-code-surfer";
+import Provider from "./CustomProvider";
 
 export const theme = {
   ...defaultTheme,
+  Provider,
   code: {
     ...defaultTheme.code,
     color: "#000",
@@ -55,6 +57,8 @@ $ yarn
 
 ---
 
+## Modern React
+
 <Appear>
   <p> Step 1: React Fiber ✅ </p>
   <p>Step 2: Suspense ✅</p>
@@ -81,7 +85,7 @@ The goal of React Fiber is to increase its suitability for areas like animation,
 
 import Script from "@gumgum/react-script-tag";
 
-## Incremental Rendering
+## Incremental Rendering ("Time Slicing")
 
 <blockquote className="twitter-tweet" data-lang="en">
   <p lang="en" dir="ltr">
@@ -90,13 +94,14 @@ import Script from "@gumgum/react-script-tag";
     <a href="https://twitter.com/giamir?ref_src=twsrc%5Etfw">@giamir</a> for the
     PR! 🎉 <a href="https://t.co/qhsWUIyXPf">pic.twitter.com/qhsWUIyXPf</a>
   </p>
-  &mdash; Andrew Clark (@acdlite){" "}
-  <a href="https://twitter.com/acdlite/status/846456239693344769?ref_src=twsrc%5Etfw">
-    March 27, 2017
-  </a>
+  &mdash; Andrew Clark (@acdlite) <a href="https://twitter.com/acdlite/status/846456239693344769?ref_src=twsrc%5Etfw">March 27, 2017</a>
 </blockquote>
 
 <Script async src="https://platform.twitter.com/widgets.js" />
+
+<Notes>
+Time Slicing is a generic way to ensure that high-priority updates (e.g. text inputs) don’t get blocked by a low-priority update (e.g. data loading).
+</Notes>
 
 ---
 
@@ -288,6 +293,14 @@ const RepositoryList = (props) => {
 <React.StrictMode>
   <App />
 </React.StrictMode>
+```
+
+---
+
+```jsx Once all the warnings are resolved
+<React.unstable_ConcurrentMode>
+  <App />
+</React.unstable_ConcurrentMode>
 ```
 
 ---
