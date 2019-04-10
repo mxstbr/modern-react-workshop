@@ -1156,6 +1156,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.2.tgz#63985d3d8b02530e0869962f4da09142ee8e200e"
   integrity sha512-n/VQ4mbfr81aqkx/XmVicOLjviMuy02eenSdJY33SVA7S2J42EU0P1H0mOogfYedb3wXA0d/LVtBrgTSm04WEA==
 
+"@gumgum/react-script-tag@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@gumgum/react-script-tag/-/react-script-tag-0.0.3.tgz#fcf1635a7fa4d8076decb40cd68fd50d565b2de5"
+  integrity sha512-8JwB4ArAxk6t9ECbg2W7HVYMKVvSt58Sw9YBnysjc/LobPAl16zF84LqEYhlUk5zW4IO22iGCZbrfsuWCwmolA==
+
 "@mdx-js/mdx@^0.15.7":
   version "0.15.7"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-0.15.7.tgz#5fde5841d7b6f4c78f80c19fff559532af5ce5ad"
@@ -10186,6 +10191,11 @@ react-syntax-highlighter@^8.1.0:
     lowlight "~1.9.1"
     prismjs "^1.8.4"
     refractor "^2.4.1"
+
+react-tweet-embed@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-tweet-embed/-/react-tweet-embed-1.2.2.tgz#b518510a6e6ef17609f9c9b16bc4775624730d8a"
+  integrity sha512-Y932BlSaJsDUsKDucC2opzzd+uhc0YNhrlTa/4Beb2be1od+AjLGo6Fhuo2wPT0D+fF4VTXOyoZyA8Yc88RdYA==
 
 react@^16.8.2, react@^16.8.6:
   version "16.8.6"

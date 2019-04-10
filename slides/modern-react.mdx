@@ -56,15 +56,9 @@ $ yarn
 ---
 
 <Appear>
-<p>
-Step 1: React Fiber ✅
-</p>
-
-<p>Step 2: Suspense ✅</p>
-
-<p>
-Step 3: Concurrent React 🛠
-</p>
+  <p> Step 1: React Fiber ✅ </p>
+  <p>Step 2: Suspense ✅</p>
+  <p> Step 3: Concurrent React 🛠 </p>
 </Appear>
 
 ---
@@ -82,6 +76,27 @@ The goal of React Fiber is to increase its suitability for areas like animation,
   <p>Fragments</p>
   <p>Portals</p>
 </Appear>
+
+---
+
+import Script from "@gumgum/react-script-tag";
+
+## Incremental Rendering
+
+<blockquote className="twitter-tweet" data-lang="en">
+  <p lang="en" dir="ltr">
+    The Fiber Triangle demo now lets you toggle time-slicing on and off. Makes
+    it much easier to see the effect. Thanks{" "}
+    <a href="https://twitter.com/giamir?ref_src=twsrc%5Etfw">@giamir</a> for the
+    PR! 🎉 <a href="https://t.co/qhsWUIyXPf">pic.twitter.com/qhsWUIyXPf</a>
+  </p>
+  &mdash; Andrew Clark (@acdlite){" "}
+  <a href="https://twitter.com/acdlite/status/846456239693344769?ref_src=twsrc%5Etfw">
+    March 27, 2017
+  </a>
+</blockquote>
+
+<Script async src="https://platform.twitter.com/widgets.js" />
 
 ---
 
@@ -294,3 +309,4 @@ Show an error overlay if the app crashes
 Code-split each route and show a loading indicator.
 
 **Bonus:** Turn the `RepositoryList` route into a modal (tip: remove the `<Switch>`).
+

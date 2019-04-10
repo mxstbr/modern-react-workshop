@@ -10,9 +10,11 @@
     "mdx-deck": "1.x"
   },
   "dependencies": {
-    "mdx-deck-code-surfer": "^0.5.5",
-    "styled-components": "^4.2.0",
+    "@gumgum/react-script-tag": "^0.0.3",
     "@mdx-js/mdx": "latest",
-    "@mdx-js/tag": "latest"
+    "@mdx-js/tag": "latest",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "react-tweet-embed": "^1.2.2",
+    "styled-components": "^4.2.0"
   }
 }
