@@ -7,7 +7,9 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "react-spinners": "^0.5.4"
+    "react-spinners": "^0.5.4",
+    "schedule": "^0.5.0",
+    "scheduler": "^0.13.6"
   },
   "scripts": {
     "start": "react-scripts start",

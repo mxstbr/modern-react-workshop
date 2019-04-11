@@ -1,7 +1,7 @@
 // Store a history of searches
 import React, { createContext } from "react";
 
-const SearchHistoryContext = createContext({
+export const SearchHistoryContext = createContext({
   items: []
 });
 
