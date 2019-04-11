@@ -8,7 +8,7 @@ export const useFetchRepositories = username => {
   React.useEffect(() => {
     setLoading(true);
     fetch(
-      `https://api.github.com/users/${username}/repos?sort=pushed&access_token=68eb9305508fb2bda5454335b1cc05d0b37d7410`
+      `https://api.github.com/users/${username}/repos?sort=pushed&access_token=YOUR_GITHUB_ACCESS_TOKEN_HERE`
     )
       .then(res => res.json())
       .then(repositories => {
